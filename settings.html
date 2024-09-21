@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Georgia, serif;
+    box-sizing: border-box;
+}
+
+.button-setup, textarea {
+    background: #112;
+    padding: 0.6rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #444;
+    display: grid;
+    gap: 0.2rem;
+    position: relative;
+    height: 3.7rem;
+    align-content: center;
+}
+textarea {
+    height: 40rem;
+    font-size: 0.9rem;
+}
+.button-setup input {
+    appearance: none;
+    border: 1px solid transparent;
+    background: none;
+}
+.button-setup input:hover {
+    opacity: 0.8;
+}
+.button-setup input:focus {
+    border: 1px solid white;
+}
+.button-setup input.label {
+    font-size: 0.8rem;
+    margin-right: 1.5rem;
+}
+.button-setup input.copy-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+button {
+    background: #112;
+    border: 1px solid #444;
+    appearance: none;
+    padding: 0.5rem 0.7rem;
+    border-radius: 2rem;
+    display: grid;
+    align-items: center;
+    gap: 0.25rem;
+    grid-auto-flow: column;
+    justify-content: center;
+    cursor: pointer;
+}
+button:hover {
+    border-color: white;
+    background: #0ffa;
+}
+button.remove {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+button.remove:hover {
+    background: Crimson;
+    z-index: 100;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+#save-indicator {
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+#save-indicator.saved {
+    background: green;
+}
+#save-indicator.saved:before {
+    content: 'All settings saved!';
+}
+#save-indicator.saving {
+    background: orange;
+}
+#save-indicator.saving:before {
+    content: 'Saving settings...';
+}
+
+    </style>
+</head>
+
+<body style="background: black; color: white; padding: 2rem; font-family: Georgia, serif; display: grid; place-items: center;">
+
+<main style="display: grid; gap: 1rem; text-align: justify; max-width: 30rem;">
+
+    <div style="display: grid; grid-auto-flow: column; gap: 1rem; width: max-content; align-items: center;">
+        <img id="logo" style="height: 3rem;" />
+        <h1 style="font-weight: 400;"> Applicat Options </h1>
+    </div>
+
+    <p> You can edit the buttons in the UI pane from here, change the headings and values they put in your clipboard, and add new buttons at the bottom.
+        You can also edit your AI prompts below ✨ All of these settings auto-save. </p>
+
+    <p id="save-indicator" class="saved"></p>
+
+    <form style="display: grid; gap: 0.5rem;">
+
+        <h2 style="margin-top: 1rem;"> Buttons </h2>
+
+        <div class="button-setup" style="cursor: not-allowed;">
+            <p style="font-size: 1rem; font-weight: bold;" > Cover Letter Prompt </p>
+        </div>
+
+        <div class="button-setup" style="cursor: not-allowed;">
+            <p style="font-size: 1rem; font-weight: bold;" > Answer Question Prompt </p>
+        </div>
+        
+        <div class="button-setup" id="button-template" style="display: none;">
+            <button class="remove"> <img style="height: 1rem;" /> </button>
+            <input class="label" placeholder="Enter heading" />
+            <input class="copy-text" placeholder="Enter value to copy" />
+        </div>
+
+        <button id="add" style="justify-self: stretch;">
+            <img style="height: 1rem;" /> Add New Button
+        </button>
+
+        <h2 style="margin-top: 1rem;"> AI Prompts </h2>
+
+        <p> These prompts are what gets copied to your clipboard when you click the <strong>Cover Letter Prompt</strong> or <strong>Answer Question Prompt</strong> buttons.
+            You can edit them below, and when you click them, the <span style="font-family: monospace; text-wrap: nowrap;">{{ page_content }}</span> tag in the prompt text will be replaced
+            with the text from the webage you are on and the <span style="font-family: monospace; text-wrap: nowrap;">{{ buttons_info }}</span> tag will be replaced with the info you have
+            entered on the buttons above.</p>
+
+        <label for="cover-letter-prompt"> Cover Letter Prompt </label>
+        <textarea id="cover-letter-prompt"></textarea>
+
+        <label for="answer-question-prompt"> Answer Question Prompt </label>
+        <textarea id="answer-question-prompt"></textarea>
+
+        <button id="reset" style="margin-top: 1rem;"> <img style="height: 1rem;" /> Reset Settings </button>
+    </form>
+
+    <p id="error" style="color: red;"> </p>
+
+</main>
+
+<script src="settings.js"></script>
+
+</body>
+
+</html>
+

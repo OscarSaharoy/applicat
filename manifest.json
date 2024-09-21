@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "Applicat",
+    "version": "1.0",
+    "description": "Speed up job applications 😸🧑‍💻📈",
+    "author": "Oscar Saharoy",
+    "homepage_url": "https://github.com/OscarSaharoy",
+    "icons": {
+        "96": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["applicat.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icon.svg",
+                "x.svg",
+                "settings.svg"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ],
+    "action": {
+        "default_icon": {
+            "96": "icon.png"
+        },
+        "default_title": "Toggle Applicat UI"
+    },
+    "background": {
+        "scripts": ["applicat-background.js"],
+        "type": "module"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "options_ui": {
+        "page": "settings.html"
+    }
+}
+
