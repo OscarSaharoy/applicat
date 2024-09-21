@@ -41,6 +41,12 @@
     ],
     "options_ui": {
         "page": "settings.html"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{3ff8f86c-c18b-4d86-b2d1-c15e503c2359}",
+            "strict_min_version": "58.0"
+        }
     }
 }
 
