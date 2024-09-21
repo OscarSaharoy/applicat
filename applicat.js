@@ -134,9 +134,9 @@ button:hover .hover-hide {
 
 <div style="display: grid; grid-auto-flow: column; justify-content: space-between; width: 100%;">
     <button id="logo" title="Open Settings" class="top-button">
-        <img src="${extensionAPI.runtime.getURL("icon.svg")}" draggable="false" style="height: 24px;" />
+        <img src="${extensionAPI.runtime.getURL("assets/icon.svg")}" draggable="false" style="height: 24px;" />
         <span>Applicat</span>
-        <img src="${extensionAPI.runtime.getURL("settings.svg")}" draggable="false" style="height: 16px; margin-left: 2px;" class="hover-hide" />
+        <img src="${extensionAPI.runtime.getURL("assets/settings.svg")}" draggable="false" style="height: 16px; margin-left: 2px;" class="hover-hide" />
     </button>
 
     <div id="grip" title="Drag panel">
@@ -146,7 +146,7 @@ button:hover .hover-hide {
 
     <button id="close" title="Close Applicat Panel" class="top-button">
         <span>Close</span>
-        <img src="${extensionAPI.runtime.getURL("x.svg")}" draggable="false" />
+        <img src="${extensionAPI.runtime.getURL("assets/x.svg")}" draggable="false" />
     </button>
 </div>
 

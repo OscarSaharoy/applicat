@@ -6,7 +6,7 @@
     "author": "Oscar Saharoy",
     "homepage_url": "https://github.com/OscarSaharoy",
     "icons": {
-        "96": "icon.png"
+        "96": "assets/icon.png"
     },
     "content_scripts": [
         {
@@ -17,9 +17,9 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "icon.svg",
-                "x.svg",
-                "settings.svg"
+                "assets/icon.svg",
+                "assets/x.svg",
+                "assets/settings.svg"
             ],
             "matches": [
                 "*://*/*"
@@ -28,7 +28,7 @@
     ],
     "action": {
         "default_icon": {
-            "96": "icon.png"
+            "96": "assets/icon.png"
         },
         "default_title": "Toggle Applicat UI"
     },

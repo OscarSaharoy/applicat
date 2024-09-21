@@ -111,10 +111,10 @@ async function resetSettings() {
 async function runSettings() {
 
     const extensionAPI = typeof browser !== "undefined" ? browser : chrome;
-    document.querySelector( "img#logo" ).src = extensionAPI.runtime.getURL("icon.svg");
-    document.querySelector( "#add img" ).src = extensionAPI.runtime.getURL("add.svg");
-    document.querySelector( "#reset img" ).src = extensionAPI.runtime.getURL("reset.svg");
-    document.querySelector( "button.remove img" ).src = extensionAPI.runtime.getURL("x.svg");
+    document.querySelector( "img#logo" ).src = extensionAPI.runtime.getURL("assets/icon.svg");
+    document.querySelector( "#add img" ).src = extensionAPI.runtime.getURL("assets/add.svg");
+    document.querySelector( "#reset img" ).src = extensionAPI.runtime.getURL("assets/reset.svg");
+    document.querySelector( "button.remove img" ).src = extensionAPI.runtime.getURL("assets/x.svg");
 
     const { applicatButtonMap, applicatPrompts } =
         await extensionAPI.storage.local.get({ applicatButtonMap: [], applicatPrompts: {} });
